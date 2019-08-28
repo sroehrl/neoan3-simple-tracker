@@ -1,0 +1,16 @@
+{
+    "name": "neoan3-apps/simple-tracker",
+    "description": "Basic analytics for the non-invasive webmaster",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sroehrl",
+            "homepage": "http://neoan.us"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "tmarois/filebase": "^1.0",
+        "phpunit/phpunit": "8.3.4"
+    }
+}
