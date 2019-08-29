@@ -4,8 +4,92 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a40fc302cbc1e253de038ed6b01ab846",
+    "content-hash": "2cbd2596f3a97c458cd0a2bf2cf7a36b",
     "packages": [
+        {
+            "name": "neoan3-apps/ops",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sroehrl/neoan3-ops.git",
+                "reference": "07938910e94d4023fd41fc9a9feebe177b628757"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sroehrl/neoan3-ops/zipball/07938910e94d4023fd41fc9a9feebe177b628757",
+                "reference": "07938910e94d4023fd41fc9a9feebe177b628757",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-openssl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Neoan3\\Apps\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "neoan3 common string operations helper class",
+            "time": "2019-08-16T20:56:56+00:00"
+        },
+        {
+            "name": "tmarois/filebase",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tmarois/Filebase.git",
+                "reference": "2801db9d705ef10afb12fd4f27cca36ff8865aec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tmarois/Filebase/zipball/2801db9d705ef10afb12fd4f27cca36ff8865aec",
+                "reference": "2801db9d705ef10afb12fd4f27cca36ff8865aec",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "5.*",
+                "symfony/yaml": "^3.4"
+            },
+            "suggest": {
+                "symfony/yaml": "Allows Yaml format"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Filebase\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Timothy Marois",
+                    "email": "timothymarois@gmail.com"
+                }
+            ],
+            "description": "A Simple but Powerful Flat File Database Storage.",
+            "homepage": "https://github.com/tmarois/Filebase",
+            "keywords": [
+                "database",
+                "document",
+                "file",
+                "file-files",
+                "filebase",
+                "flat",
+                "flat-file",
+                "key-value",
+                "serverless"
+            ],
+            "time": "2019-06-26T19:23:49+00:00"
+        }
+    ],
+    "packages-dev": [
         {
             "name": "doctrine/instantiator",
             "version": "dev-master",
@@ -1480,59 +1564,6 @@
             "time": "2019-06-13T22:48:21+00:00"
         },
         {
-            "name": "tmarois/filebase",
-            "version": "1.0.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tmarois/Filebase.git",
-                "reference": "2801db9d705ef10afb12fd4f27cca36ff8865aec"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tmarois/Filebase/zipball/2801db9d705ef10afb12fd4f27cca36ff8865aec",
-                "reference": "2801db9d705ef10afb12fd4f27cca36ff8865aec",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "php-coveralls/php-coveralls": "^2.0",
-                "phpunit/phpunit": "5.*",
-                "symfony/yaml": "^3.4"
-            },
-            "suggest": {
-                "symfony/yaml": "Allows Yaml format"
-            },
-            "type": "package",
-            "autoload": {
-                "psr-4": {
-                    "Filebase\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Timothy Marois",
-                    "email": "timothymarois@gmail.com"
-                }
-            ],
-            "description": "A Simple but Powerful Flat File Database Storage.",
-            "homepage": "https://github.com/tmarois/Filebase",
-            "keywords": [
-                "database",
-                "document",
-                "file",
-                "file-files",
-                "filebase",
-                "flat",
-                "flat-file",
-                "key-value",
-                "serverless"
-            ],
-            "time": "2019-06-26T19:23:49+00:00"
-        },
-        {
             "name": "webmozart/assert",
             "version": "1.5.0",
             "source": {
@@ -1583,10 +1614,11 @@
             "time": "2019-08-24T08:43:50+00:00"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "neoan3-apps/ops": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
