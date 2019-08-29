@@ -14,4 +14,7 @@ class SimpleTrackerTest extends TestCase
     {
         $this->assertTrue(SimpleTracker::init());
     }
+    public function testTrack(){
+        SimpleTracker::track();
+    }
 }
