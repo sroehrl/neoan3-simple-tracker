@@ -5,11 +5,13 @@ namespace Neoan3\Apps;
 
 
 use Filebase\Database;
+use Filebase\Document;
 use Filebase\Filesystem\FilesystemException;
 use Filebase\Format\Json;
 
 /**
  * Class SimpleTracker
+ *
  * @package Neoan3\Apps
  */
 class SimpleTracker
@@ -28,14 +30,14 @@ class SimpleTracker
     {
         $path = dirname(dirname(dirname(__DIR__))) . '/simple-tracker/';
         $configTemplate = [
-            'dir' => $path . 'data',
+            'dir'            => $path . 'data',
             'backupLocation' => $path . 'backup/data',
-            'format' => Json::class,
-            'cache' => true,
-            'cache_expires' => 1800,
-            'pretty' => false,
-            'safe_filename' => true,
-            'read_only' => false
+            'format'         => Json::class,
+            'cache'          => true,
+            'cache_expires'  => 1800,
+            'pretty'         => false,
+            'safe_filename'  => true,
+            'read_only'      => false
         ];
         if (!$config) {
             $config = $configTemplate;
@@ -63,7 +65,7 @@ class SimpleTracker
     /**
      * @param bool $identifier
      *
-     * @return \Filebase\Document
+     * @return Database
      */
     static function track($identifier = false)
     {
@@ -73,22 +75,46 @@ class SimpleTracker
         if (!$identifier) {
             $identifier = 'rand-' . Ops::hash(4);
         }
-        $db = self::$_db->get($_SERVER['REQUEST_URI']);
-        $db->visits[] = [
-            'date' => date('Y-m-d H:i:s'),
-            'endpoint' => $_SERVER['REQUEST_URI'],
-            'referrer' => $_SERVER['HTTP_REFERER'],
+        $data = [
+            'date'       => date('Y-m-d H:i:s'),
+            'endpoint'   => $_SERVER['REQUEST_URI'],
+            'referrer'   => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null,
             'identifier' => $identifier
         ];
+        $document = self::$_db->get('v-'.Ops::hash(8));
+        $endpoint = self::$_db->get($data['endpoint']);
+        foreach ($data as $key => $value){
+            $document->{$key} = $value;
+        }
+        $endpoint->visits[] = $data;
+        $endpoint->save();
+        $document->save();
 
-        $db->save();
-        return $db;
+        return self::$_db;
     }
-    static function endpointData($endpoint){
+
+    /**
+     * @param $endpoint
+     *
+     * @return Document
+     */
+    static function endpointData($endpoint)
+    {
         if (!self::$_db) {
             self::init();
         }
-        return self::$_db->get($_SERVER['REQUEST_URI']);
+        return self::$_db->get($endpoint);
+    }
 
+    /**
+     * @param $identifier
+     *
+     * @return Document
+     */
+    static function identifierData($identifier){
+        if (!self::$_db) {
+            self::init();
+        }
+        return self::$_db->get($identifier);
     }
 }

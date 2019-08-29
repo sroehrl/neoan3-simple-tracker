@@ -1,1 +1,0 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":258:{a:2:{s:7:"defects";a:2:{s:39:"Neoan3\Apps\SimpleTrackerTest::testInit";i:5;s:40:"Neoan3\Apps\SimpleTrackerTest::testTrack";i:5;}s:5:"times";a:2:{s:39:"Neoan3\Apps\SimpleTrackerTest::testInit";d:0.006;s:40:"Neoan3\Apps\SimpleTrackerTest::testTrack";d:0.056;}}}
