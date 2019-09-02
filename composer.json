@@ -4,9 +4,9 @@
   "license": "MIT",
   "version": "0.0.1",
   "autoload": {
-    "psr-0": {
-      "Neoan3\\Apps\\": ""
-    }
+    "files": [
+      "SimpleTracker.php"
+    ]
 
   },
   "authors": [
