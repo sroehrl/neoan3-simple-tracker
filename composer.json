@@ -3,6 +3,12 @@
   "description": "Basic analytics for the non-invasive webmaster",
   "license": "MIT",
   "version": "0.0.1",
+  "autoload": {
+    "psr-0": {
+      "Neoan3\\Apps\\": ""
+    }
+
+  },
   "authors": [
     {
       "name": "sroehrl",
