@@ -5,7 +5,7 @@ Simple PHP analytics
 Cherishing privacy is an ideal that contrasts the requirement to adapt to user-behavior, understand action items for marketing, and react on once audience.
 This is why simple tracker focuses on the absolute minimum.
 
-- no external libraries / dependencies
+- no data-handoff to external sources
 - no identity threatening data collection
 
 Simple tracker can answer the following questions:
