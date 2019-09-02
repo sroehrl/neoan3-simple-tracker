@@ -2,6 +2,7 @@
   "name": "neoan3-apps/simple-tracker",
   "description": "Basic analytics for the non-invasive webmaster",
   "license": "MIT",
+  "version": "0.0.1",
   "authors": [
     {
       "name": "sroehrl",
