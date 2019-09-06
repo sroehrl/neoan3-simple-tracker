@@ -30,7 +30,7 @@ class SimpleTracker
      */
     static function init($config = false)
     {
-        $path = dirname(dirname(dirname(__DIR__))) . '/simple-tracker/';
+        $path = dirname(dirname(dirname(dirname(__DIR__)))) . '/simple-tracker/';
         $configTemplate = [
             'dir'            => $path . 'data',
             'backupLocation' => $path . 'backup/data',
