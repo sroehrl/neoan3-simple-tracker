@@ -21,6 +21,8 @@ class SimpleTracker
      */
     static private $_db;
 
+    static private $_requestUrl;
+
     /**
      * @param bool $config
      *
@@ -58,6 +60,7 @@ class SimpleTracker
             var_dump('Tracking database not established');
             exit();
         }
+        self::$_requestUrl = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : null;
         return self::$_db;
 
     }
@@ -77,7 +80,7 @@ class SimpleTracker
         }
         $data = [
             'date'       => date('Y-m-d H:i:s'),
-            'endpoint'   => $_SERVER['REQUEST_URI'],
+            'endpoint'   => self::$_requestUrl,
             'referrer'   => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null,
             'identifier' => $identifier
         ];
@@ -98,10 +101,13 @@ class SimpleTracker
      *
      * @return Document
      */
-    static function endpointData($endpoint)
+    static function endpointData($endpoint=false)
     {
         if (!self::$_db) {
             self::init();
+        }
+        if(!$endpoint){
+            $endpoint = self::$_requestUrl;
         }
         return self::$_db->get($endpoint);
     }

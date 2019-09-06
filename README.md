@@ -53,7 +53,9 @@ An identifier can be whatever you want (e.g. user-id, PHP-session) and is option
 Without an identifier each visit is captured as if an individual user made a request.
 
 ## endpointData
-`Neoan3\Apps\SimpleTracker::endpointData(string $endpoint)`
+`Neoan3\Apps\SimpleTracker::endpointData([string $endpoint])`
+
+If $endpoint is not set, $_SERVER['REQUEST_URI'] will be used.
 
 Example:
 
