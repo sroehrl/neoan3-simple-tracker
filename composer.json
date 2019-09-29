@@ -18,7 +18,7 @@
   "minimum-stability": "dev",
   "require": {
     "tmarois/filebase": "^1.0",
-    "neoan3-apps/ops": "dev-master"
+    "neoan3-apps/ops": "^1"
   },
   "require-dev": {
     "phpunit/phpunit": "8.3.4"
