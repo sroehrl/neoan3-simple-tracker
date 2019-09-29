@@ -76,7 +76,7 @@ class SimpleTracker
             self::init();
         }
         if (!$identifier) {
-            $identifier = 'rand-' . Ops::hash(4);
+            $identifier = 'rand-' . Ops::randomString(4);
         }
         $data = [
             'date'       => date('Y-m-d H:i:s'),
@@ -84,7 +84,7 @@ class SimpleTracker
             'referrer'   => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null,
             'identifier' => $identifier
         ];
-        $document = self::$_db->get('v-'.Ops::hash(8));
+        $document = self::$_db->get('v-'.Ops::randomString(8));
         $endpoint = self::$_db->get($data['endpoint']);
         foreach ($data as $key => $value){
             $document->{$key} = $value;
