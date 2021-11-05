@@ -2,7 +2,7 @@
   "name": "neoan3-apps/simple-tracker",
   "description": "Basic analytics for the non-invasive webmaster",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "autoload": {
     "files": [
       "SimpleTracker.php"
